@@ -14,6 +14,7 @@ export default class CreateNote extends Component {
     }
 
     onSubmit = async (e) => {
+        console.log("sutmit")
         e.preventDefault();
        
             const newNote = {
@@ -28,6 +29,7 @@ export default class CreateNote extends Component {
     }
 
     onInputChange = (e) => {
+        console.log("imput")
         this.setState({
             [e.target.name]: e.target.value
         })

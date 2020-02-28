@@ -1,30 +1,29 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
-import NotesList from './NotesList';
+//import NotesList from './NotesList';
 
-export default class CreateUser extends Component {
+export default class Blog extends Component {
 
     state = {
-        username: '',
-        users: []
+        note: []
     }
 
     async componentDidMount() {
-        this.getUsers();
+        this.getNote();
     }
 
-    getUsers = async () => {
+    getNote = async () => {
         const res = await axios.get('http://localhost:8001/api/notes.json');
         this.setState({
-            users: res.data
+            note: res.data
         });
     }
 
     
-    deleteUser = async (userId) => {
+    verEntrada = async (titleid) => {
         const response = window.confirm('quieres ver el ');
-    //    {"/edit/" + note._id}
+    
 
     }
 
@@ -46,11 +45,11 @@ export default class CreateUser extends Component {
                 <div className="col-md-8">
                     <ul className="list-group">
                         {
-                            this.state.users.map(user => (
+                            this.state.note.map(title => (
                                 <li className="list-group-item list-group-item-action"
-                                 key={user._id} onDoubleClick={() => 
-                                 this.deleteUser(user.id)           }>
-                                    {user.title}
+                                 key={title._id} onDoubleClick={() => 
+                                 this.verEntrada(title.id)           }>
+                                    {title.title}
                                    
                                 </li>
                             ))
