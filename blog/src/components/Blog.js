@@ -46,12 +46,14 @@ export default class Blog extends Component {
                     <ul className="list-group">
                         {
                             this.state.note.map(title => (
-                                <li className="list-group-item list-group-item-action"
-                                 key={title._id} onDoubleClick={() => 
-                                 this.verEntrada(title.id)           }>
+                                <Link to={"/com/" + title.id } className="list-group-item list-group-item-action"
+                                 key={title._id} >
                                     {title.title}
                                    
-                                </li>
+                                </Link>
+
+
+
                             ))
                         }
                     </ul>

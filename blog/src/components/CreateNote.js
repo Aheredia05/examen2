@@ -22,6 +22,7 @@ export default class CreateNote extends Component {
                 content: this.state.content,
                 author: this.state.author,        
             };
+            console.log(newNote)
             axios.post('http://localhost:8001/api/notes', newNote);
         
         window.location.href = '/';

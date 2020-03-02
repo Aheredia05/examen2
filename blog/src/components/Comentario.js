@@ -13,7 +13,8 @@ export default class Comentarios extends Component {
         title:'',
         content1:'',
         author:'',
-        comentary: []
+        comentary: [],
+        filtardo:[]
     }
 
     async componentDidMount() {
@@ -33,7 +34,8 @@ export default class Comentarios extends Component {
                comentary: res2.data
            });
            console.log(this.state.comentary)
-      
+           this.setState({filtardo:this.state.comentary.filter(j=>j.noteId===this.props.match.params.id)})
+           console.log(this.state.filtardo)
     }
 
     
@@ -47,10 +49,13 @@ export default class Comentarios extends Component {
                 name: this.state.name,
                 email: this.state.email,
                 content: this.state.content,
-                noteId: this.props.match.params.id       
+                web: this.state.web,
+                noteId: this.props.match.params.id   
             };
             console.log(newNote)
             axios.post('http://localhost:8001/api/comentaries', newNote);
+
+            window.location.href = '/com/'+ this.props.match.params.id  ;
         
         
 
@@ -83,7 +88,7 @@ export default class Comentarios extends Component {
             <h1>COMENTARIOS</h1>
             ------------------------
             {
-                    this.state.comentary.map(comentary => ( 
+                    this.state.filtardo.map(comentary => ( 
                         <div className="col-md-8" key={comentary.id}>
                             <div className="card">
                                 <div className="card-header d-flex justify-content-between">

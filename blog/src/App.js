@@ -19,7 +19,7 @@ function App() {
         <Route path="/" exact component={Blog} />
         <Route path="/note" exact component={NotesList} />
         <Route path="/com/:id" component={Comentarios} />
-        <Route path="/not/:id" component={Note} />
+        <Route path="/not" component={Note} />
         <Route path="/comlist" component={Comlist} />
         <Route path="/not" component={Note} />
 
