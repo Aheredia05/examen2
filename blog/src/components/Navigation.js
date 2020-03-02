@@ -18,9 +18,7 @@ export default class Navigation extends Component {
                             <li className="nav-item active">
                                 <Link to="/" className="nav-link">Notes</Link>
                             </li>
-                            <li className="nav-item">
-                                <Link to="/com" className="nav-link">Comentarios</Link>
-                            </li>
+                          
                             <li className="nav-item">
                                 <Link to="/create" className="nav-link">Create Note</Link>
                             </li>
